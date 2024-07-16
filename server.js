@@ -17,12 +17,25 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-const corsOption = {
-  credentials: true,
-  origin: "http://localhost:3000",
-}
+const allowedOrigins = ['http://localhost:3000', 'https://peach-mode.netlify.app/'];
 
-app.use(cors(corsOption));
+
+const corsOptions = {
+  credentials: true,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
+
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
