@@ -24,6 +24,7 @@ const corsOption = {
 }
 
 app.use(cors(corsOption));
+app.options('*', cors(corsOption));
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
