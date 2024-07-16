@@ -23,6 +23,14 @@ const corsOption = {
   origin: "https://peach-mode.netlify.app/",
 }
 
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+
+
 app.use(cors(corsOption));
 app.options('*', cors(corsOption));
 app.use(bodyParser.json({ limit: '10mb' }));
