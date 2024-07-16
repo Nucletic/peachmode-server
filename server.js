@@ -17,14 +17,15 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-const corsOption = {
-  credentials: true,
-  // origin: "http://localhost:3000",
-  origin: "https://peach-mode.netlify.app/",
-}
+// const corsOption = {
+//   credentials: true,
+//   // origin: "http://localhost:3000",
+//   origin: "https://peach-mode.netlify.app/",
+// }
 
-app.use(cors(corsOption));
-app.options('*', cors(corsOption));
+app.use(cors());
+// app.use(cors(corsOption));
+// app.options('*', cors(corsOption));
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
