@@ -1,0 +1,18 @@
+create a database named peachmode then do the following - 
+
+Create Collections Named - Editable
+Create Collections Named - Payment
+Create Collections Named - giftcards
+Create Collections Named - orders
+Create Collections Named - products
+Create Collections Named - users
+
+
+then Import there data accordingly from the files provided.
+
+Editable - peachmode.Editable
+Payment - peachmode.payments
+giftcards - peachmode.giftcards
+orders - peachmode.orders
+products - peachmode.products
+users - peachmode.users

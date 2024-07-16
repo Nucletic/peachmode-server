@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 5000
 
 # Set environment variables
-ENV MONGO_URL=mongodb://mongo:27017/peachmode
+ENV MONGO_URL=mongodb+srv://pansu:pansu@cluster0.rshy9x2.mongodb.net/peachmode?retryWrites=true&w=majority&appName=Cluster0
 
 # Start the application
 CMD ["npm", "start"]

@@ -28,12 +28,16 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
 // app.use(responseTime);
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb://0.0.0.0:27017/peachmode')
+// mongoose.connect(process.env.MONGO_URL || 'mongodb://0.0.0.0:27017/peachmode')
+mongoose.connect(process.env.MONGO_URL || 'mongodb+srv://pansu:pansu@cluster0.rshy9x2.mongodb.net/peachmode?retryWrites=true&w=majority&appName=Cluster0', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => {
     console.log('Connected to the Database Successfully');
   });
 
-  app.use(async (req, res, next) => {
+app.use(async (req, res, next) => {
   if (req.headers['x-access-token']) {
     const accessToken = req.headers['x-access-token'];
     const { userId, exp } = await jwt.verify(accessToken, process.env.JWT_SECRET);
