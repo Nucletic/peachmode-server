@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000;
 
 const corsOption = {
   credentials: true,
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "https://peach-mode.netlify.app/"],
   // origin: "https://peach-mode.netlify.app/",
 }
 
